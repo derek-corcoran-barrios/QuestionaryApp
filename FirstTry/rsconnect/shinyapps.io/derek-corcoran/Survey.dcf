@@ -1,0 +1,12 @@
+name: Survey
+title: Survey
+username:
+account: derek-corcoran
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1016135
+bundleId: 2210470
+url: https://derek-corcoran.shinyapps.io/Survey/
+when: 1562589196.88295
+asMultiple: FALSE
+asStatic: FALSE

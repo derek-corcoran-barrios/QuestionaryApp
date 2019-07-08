@@ -26,8 +26,8 @@ shinyApp(
         # Tabs breeds
         
         output$mytabs = renderUI({
-            Species <- c(1:4)
-            Random <- sample(Species, 4)
+            Breeds <- c(1:3)
+            Random <- sample(Breeds, 3)
             myTabs = lapply(Random, function(i){
                 
                 
