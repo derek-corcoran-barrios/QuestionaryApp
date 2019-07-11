@@ -1,8 +1,7 @@
 
 library(shiny)
+library(shinyjs)
 library(raster)
-library(rgdal)
-
 shinyApp(
     ui = tagList(
         navbarPage("",
@@ -38,7 +37,7 @@ shinyApp(
                              fluidRow(
                                  column(6,
                                         wellPanel(
-                                            plotOutput(paste0("PlotBreed",i)))),
+                                            img(src = paste0("Dog",i, ".jpg"), height = 300, width = 300))),
                                  renderUI({
                                      Habitats <- c(1:3)
                                      RandomH <- sample(Habitats, 3)
@@ -53,7 +52,7 @@ shinyApp(
                                      
                                      column(6,actionButton("New_Button", "Next house"),
                                             wellPanel(
-                                                plotOutput(paste0("PlotHouse",RandomH[1]))),
+                                                uiOutput(paste0("PlotHouse",RandomH[1]))),
                                             textOutput("Numb")
                                      )
                                      
@@ -66,35 +65,17 @@ shinyApp(
             
             do.call(tabsetPanel, myTabs)
         })
-        
-        output$PlotBreed1 <- renderPlot({
-            a <- stack("Images/border_collie.jpg")
-            plotRGB(a)
-        })
-        
-        output$PlotBreed2 <- renderPlot({
-            b <- stack("Images/German-Shepherd.jpg")
-            plotRGB(b)
-        })
-        
-        output$PlotBreed3 <- renderPlot({
-            c <- stack("Images/Yorkshire.jpg")
-            plotRGB(c)
-        })  
     
-        output$PlotHouse1 <- renderPlot({
-            d <- stack("Images/Appartment.jpeg")
-            plotRGB(d)
+        output$PlotHouse1 <- renderUI({
+            img(src = "House1.jpg", height = 300, width = 300)
         })
         
-        output$PlotHouse2 <- renderPlot({
-            e <- stack("Images/House.jpg")
-            plotRGB(e)
+        output$PlotHouse2 <- renderUI({
+            img(src = "House2.jpg", height = 300, width = 300)
         })
         
-        output$PlotHouse3 <- renderPlot({
-            f <- stack("Images/cottage.jpg")
-            plotRGB(f)
+        output$PlotHouse3 <- renderUI({
+            img(src = "House3.jpg", height = 300, width = 300)
         })
         
         
